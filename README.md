@@ -1,0 +1,1 @@
+# Azure.Func.CleanArchitecture.WebApi

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Azure_Func_CleanArchitecture_WebApi": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7225",
+      "launchBrowser": false
+    }
+  }
+}
