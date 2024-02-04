@@ -2,6 +2,9 @@ using System.Net;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
+using ApplicationLayer;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Azure.Func.CleanArchitecture.WebApi
 {
@@ -17,7 +20,8 @@ namespace Azure.Func.CleanArchitecture.WebApi
         }
 
         [Function("HttpExample")]
-        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
+        [Authorize]
+        public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, ClaimsPrincipal claimsPrincipal)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -29,4 +33,5 @@ namespace Azure.Func.CleanArchitecture.WebApi
             return response;
         }
     }
+
 }

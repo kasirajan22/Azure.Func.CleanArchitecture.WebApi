@@ -1,4 +1,4 @@
-﻿namespace Azure.Func.CleanArchitecture.WebApi;
+﻿namespace ApplicationLayer;
 
 public interface IMyService
 {
