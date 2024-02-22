@@ -12,13 +12,11 @@ using WebApi;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(worker => { 
-        worker.UseMiddleware<MyMiddleware>(); 
         worker.UseMiddleware<AuthMiddle>(); 
     })
     .ConfigureServices(s =>
     {
-        s.AddAuthentication();
-        s.AddSingleton<IMyService, MyService>();
+         s.AddSingleton<IMyService, MyService>();
         var connectionString = "";
         s.AddDbContext<RepositoryContext>(options => options.UseSqlServer(connectionString, x => x.MigrationsAssembly("InfrastructureLayer")));
         s.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
