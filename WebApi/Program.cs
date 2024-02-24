@@ -12,7 +12,7 @@ using WebApi;
 
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(worker => { 
-        worker.UseMiddleware<AuthMiddle>(); 
+        worker.UseMiddleware<AuthMiddleware>(); 
     })
     .ConfigureServices(s =>
     {
